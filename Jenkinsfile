@@ -6,11 +6,11 @@ node{
     }
 
     stage('Build image') {
-        app = docker.build("xavki/nginx")
+        app = docker.build("filou95/httpd-esgi")
     }
 
     stage('Test image') {
-        docker.image('xavki/nginx').withRun('-p 80:80') { c ->
+        docker.image('filou95/httpd-esgi').withRun('-p 80:80') { c ->
         sh 'docker ps'
         sh 'curl localhost'
 	     }
